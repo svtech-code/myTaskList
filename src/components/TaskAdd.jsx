@@ -36,7 +36,7 @@ const TaskAdd = ({ addNewTask }) => {
   return (
     <form
       onSubmit={handleSendTask}
-      className="bg-gray-400 dark:bg-gray-900 rounded-lg overflow-hidden p-3 flex gap-2 text-black dark:text-white items-center"
+      className="bg-blue-400 dark:bg-gray-800 rounded-lg overflow-hidden p-3 flex gap-2 text-black dark:text-white items-center"
     >
       <span>
         <AddCircleOutlineSharpIcon />
@@ -44,7 +44,7 @@ const TaskAdd = ({ addNewTask }) => {
       <input
         type="text"
         placeholder="Add a new task..."
-        className="w-full bg-white dark:bg-gray-400 text-black dark:placeholder-black rounded-lg p-2 outline-none"
+        className="w-full bg-gray-300 dark:bg-gray-400 text-black placeholder-gray-600 rounded-lg p-2 outline-none"
         value={inputTask}
         onChange={(input) => setInputTask(input.target.value)}
       />

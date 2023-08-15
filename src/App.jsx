@@ -8,11 +8,11 @@ const initialTaskList = JSON.parse(localStorage.getItem("taskList")) || [];
 
 const App = () => {
   const [taskList, setTaskList] = useState(initialTaskList);
-  const numberTask = taskList.length;
+  const completeTask = taskList.filter((task) => task.state).length;
+  const pendingTask = taskList.filter((task) => !task.state).length;
 
   useEffect(() => {
     localStorage.setItem("taskList", JSON.stringify(taskList));
-    console.log(taskList);
   }, [taskList]);
 
   const addNewTask = (task) => {
@@ -25,19 +25,37 @@ const App = () => {
     setTaskList([...taskList, newTask]);
   };
 
+  const updateTask = (id) => {
+    setTaskList(
+      taskList.map((task) =>
+        task.id === id ? { ...task, state: !task.state } : task
+      )
+    );
+  };
+
+  const removeTask = (id) => {
+    setTaskList(taskList.filter((task) => task.id !== id));
+  };
+
   return (
-    <div className="h-screen w-screen max-h-screen bg-[url('./assets/img-mobile-light.jpeg')] p-4 gap-4 bg-cover flex flex-grow flex-col">
+    <div
+      className="h-screen w-screen max-h-screen p-4 gap-3 bg-cover flex flex-grow flex-col
+    bg-[url('./assets/img-mobile-light.jpeg')] dark:bg-[url('./assets/img-mobile-dark.jpeg')]"
+    >
       <Header />
 
-      <main className="rounded-lg overflow-hidden flex gap-2 flex-col flex-grow">
-        <div className="bg-gray-400 dark:bg-gray-900 px-2 py-4 rounded-lg">
-          <TaskComputed numberTask={numberTask} />
+      <TaskAdd addNewTask={addNewTask} />
 
-          <TaskList taskList={taskList} />
+      <main className="rounded-lg overflow-hidden flex gap-2 flex-col flex-grow">
+        <div className="bg-blue-400 dark:bg-gray-800 px-2 py-4 rounded-lg">
+          <TaskList
+            taskList={taskList}
+            removeTask={removeTask}
+            updateTask={updateTask}
+          />
+          <TaskComputed completeTask={completeTask} pendingTask={pendingTask} />
         </div>
       </main>
-
-      <TaskAdd addNewTask={addNewTask} />
     </div>
   );
 };
