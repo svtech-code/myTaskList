@@ -1,10 +1,11 @@
+import { Draggable, Droppable } from "@hello-pangea/dnd";
 import TaskItem from "./TaskItem";
 
 const TaskList = ({ taskList, removeTask, updateTask }) => {
   return (
-    <section className=" overflow-auto rounded-lg">
+    <section className="w-full rounded-lg overflow-hidden overflow-y-auto">
       <ul className="flex flex-col gap-1 [&>li]:p-2">
-        {taskList.map((taskItem) => (
+        {taskList.map((taskItem, index) => (
           <TaskItem
             key={taskItem.id}
             taskItem={taskItem}

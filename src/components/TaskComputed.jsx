@@ -1,13 +1,13 @@
 const TaskComputed = ({ completeTask, pendingTask }) => {
   return (
-    <section className="flex justify-between">
-      <span className="flex pt-4 text-black font-bold dark:text-white">
+    <footer className="flex justify-between">
+      <span className="flex text-black font-bold dark:text-white">
         {pendingTask} Pendientes
       </span>
-      <span className="flex pt-4 text-black font-bold dark:text-white">
+      <span className="flex text-black font-bold dark:text-white">
         {completeTask} Completadas
       </span>
-    </section>
+    </footer>
   );
 };
 

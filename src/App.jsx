@@ -4,8 +4,17 @@ import TaskComputed from "./components/TaskComputed";
 import TaskList from "./components/TaskList";
 import { useEffect, useState } from "react";
 import TaskFilter from "./components/TaskFilter";
+import { DragDropContext } from "@hello-pangea/dnd";
 
 const initialTaskList = JSON.parse(localStorage.getItem("taskList")) || [];
+
+// const orderTask = (list, startIndex, endIndex) => {
+//   const result = [...list];
+//   const [removed] = result.splice(startIndex, 1);
+//   result.splice(endIndex, 0, removed);
+
+//   return result;
+// };
 
 const App = () => {
   const [taskList, setTaskList] = useState(initialTaskList);
@@ -59,26 +68,40 @@ const App = () => {
   // Permite modificar el filtro según el parametro pasado
   const changeFilter = (filter) => setFilter(filter);
 
+  // const handleDragEnd = (result) => {
+  //   const { destination, source } = result;
+  //   if (!destination) return;
+  //   if (
+  //     source.index === destination.index &&
+  //     source.droppableId === destination.droppableId
+  //   )
+  //     return;
+
+  //   setTaskList((prevTask) =>
+  //     orderTask(prevTask, source.index, destination.index)
+  //   );
+  // };
+
   return (
     <div
-      className="bg-center h-screen w-screen max-h-screen p-4 gap-3 bg-cover flex flex-grow flex-col
-    bg-[url('./assets/img-ligth.jpg')] dark:bg-[url('./assets/img-dark.jpg')]"
+      className="bg-[url('./assets/img-ligth.jpg')] dark:bg-[url('./assets/img-dark.jpg')]
+    // bg-center h-screen w-screen p-3 gap-3 relative flex flex-col bg-cover"
     >
-      <Header />
+      <header className="flex flex-col gap-2 opacity-90">
+        <Header />
+        <TaskAdd addNewTask={addNewTask} />
+      </header>
 
-      <TaskAdd addNewTask={addNewTask} />
+      <main className="bg-cyan-700 dark:bg-gray-800 rounded-lg w-full h-auto p-3 flex flex-col gap-2 max-h-[75%] opacity-90">
+        <TaskFilter changeFilter={changeFilter} filter={filter} />
 
-      <main className="rounded-lg overflow-hidden flex gap-2 flex-col flex-grow opacity-90">
-        <div className="bg-cyan-700 dark:bg-gray-800 p-2 rounded-lg">
-          <TaskFilter changeFilter={changeFilter} filter={filter} />
+        <TaskList
+          taskList={taskFilter()}
+          removeTask={removeTask}
+          updateTask={updateTask}
+        />
 
-          <TaskList
-            taskList={taskFilter()}
-            removeTask={removeTask}
-            updateTask={updateTask}
-          />
-          <TaskComputed completeTask={completeTask} pendingTask={pendingTask} />
-        </div>
+        <TaskComputed completeTask={completeTask} pendingTask={pendingTask} />
       </main>
     </div>
   );

@@ -19,7 +19,7 @@ const Header = () => {
   }, [darkMode]);
 
   return (
-    <header className="flex justify-between items-center p-4 bg-cyan-700 opacity-90 dark:bg-gray-800 dark:text-white text-dark rounded-lg h-20">
+    <header className="flex justify-between items-center p-4 bg-cyan-700 dark:bg-gray-800 dark:text-white text-dark rounded-lg h-20">
       <h1 className="text-3xl font-bold">My Task List</h1>
       <button onClick={() => setDarkMode(!darkMode)} className="text-2xl">
         {darkMode ? <LightModeSharpIcon /> : <NightsStaySharpIcon />}
