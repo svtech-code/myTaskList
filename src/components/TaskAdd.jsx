@@ -36,7 +36,7 @@ const TaskAdd = ({ addNewTask }) => {
   return (
     <form
       onSubmit={handleSendTask}
-      className="bg-blue-400 dark:bg-gray-800 rounded-lg overflow-hidden p-3 flex gap-2 text-black dark:text-white items-center"
+      className="bg-cyan-700 opacity-90 dark:bg-gray-800 rounded-lg overflow-hidden p-3 flex gap-2 text-black dark:text-white items-center"
     >
       <span>
         <AddCircleOutlineSharpIcon />
