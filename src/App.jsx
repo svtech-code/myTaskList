@@ -4,17 +4,16 @@ import TaskComputed from "./components/TaskComputed";
 import TaskList from "./components/TaskList";
 import { useEffect, useState } from "react";
 import TaskFilter from "./components/TaskFilter";
-import { DragDropContext } from "@hello-pangea/dnd";
 
 const initialTaskList = JSON.parse(localStorage.getItem("taskList")) || [];
 
-// const orderTask = (list, startIndex, endIndex) => {
-//   const result = [...list];
-//   const [removed] = result.splice(startIndex, 1);
-//   result.splice(endIndex, 0, removed);
+const orderTask = (list, startIndex, endIndex) => {
+  const result = [...list];
+  const [removed] = result.splice(startIndex, 1);
+  result.splice(endIndex, 0, removed);
 
-//   return result;
-// };
+  return result;
+};
 
 const App = () => {
   const [taskList, setTaskList] = useState(initialTaskList);
@@ -68,19 +67,19 @@ const App = () => {
   // Permite modificar el filtro según el parametro pasado
   const changeFilter = (filter) => setFilter(filter);
 
-  // const handleDragEnd = (result) => {
-  //   const { destination, source } = result;
-  //   if (!destination) return;
-  //   if (
-  //     source.index === destination.index &&
-  //     source.droppableId === destination.droppableId
-  //   )
-  //     return;
+  const handleDragEnd = (result) => {
+    const { destination, source } = result;
+    if (!destination) return;
+    if (
+      source.index === destination.index &&
+      source.droppableId === destination.droppableId
+    )
+      return;
 
-  //   setTaskList((prevTask) =>
-  //     orderTask(prevTask, source.index, destination.index)
-  //   );
-  // };
+    setTaskList((prevTask) =>
+      orderTask(prevTask, source.index, destination.index)
+    );
+  };
 
   return (
     <div
@@ -99,6 +98,7 @@ const App = () => {
           taskList={taskFilter()}
           removeTask={removeTask}
           updateTask={updateTask}
+          handleDragEnd={handleDragEnd}
         />
 
         <TaskComputed completeTask={completeTask} pendingTask={pendingTask} />
