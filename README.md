@@ -1,8 +1,42 @@
-# React + Vite
+# My Task List
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p>
+  
+</p>
 
-Currently, two official plugins are available:
+Primera aplicación web con React, Vite y TailwindCSS.
+Esta es una aplicación web de registro de tareas, la cual, cuenta con las siguientes funcionalidades:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Modo claro / oscuro
+- Drag and drop
+- Filtro de tares (todas / terminadas / pendientes)
+- responsive
+- Mensajes popUp
+
+![https://github.com/svtech-code](./src/assets/img.png)
+
+Puedes descargar el proyecto clonando el repositorio e instalar las dependencias para poder modificarlos a gusto. Para ello, necesitas hacer lo siguiente:
+
+- Clonar el repositorio
+- Instalar dependencias
+- Inicializar el proyecto
+
+Para intalar las depencecias, luego de clonar el proyecto, utilizar los sigeuietes comandos en la terminal:
+
+**Ingresar a la carpeta del proyecto**
+
+```
+cd myTaskList/
+```
+
+**Instalar las dependencias**
+
+```
+npm install
+```
+
+**Inicializar el proyecto**
+
+```
+npm run dev
+```
