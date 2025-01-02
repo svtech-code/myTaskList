@@ -1,9 +1,5 @@
 # My Task List
 
-<p>
-  
-</p>
-
 Primera aplicación web con React, Vite y TailwindCSS.
 Esta es una aplicación web de registro de tareas, la cual, cuenta con las siguientes funcionalidades:
 
@@ -14,6 +10,14 @@ Esta es una aplicación web de registro de tareas, la cual, cuenta con las sigui
 - Mensajes popUp
 
 ![https://github.com/svtech-code](./src/assets/img.png)
+
+<p align="center">
+    <img src="https://img.shields.io/badge/npm-0077B5?logo=npm" alt="logo npm">
+  &nbsp;
+    <img src="https://img.shields.io/badge/vite-E4405F?logo=vite" alt="logo vaite">
+  &nbsp;
+    <img src="https://img.shields.io/badge/react-black?logo=react" alt="logo react">
+</p>
 
 Puedes descargar el proyecto clonando el repositorio e instalar las dependencias para poder modificarlos a gusto. Para ello, necesitas hacer lo siguiente:
 
