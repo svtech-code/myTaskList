@@ -18,11 +18,11 @@
 
 ## 📑 Descripción
 Primera aplicación web con React, Vite y TailwindCSS, creada luego de aprender react.
-Esta es una aplicación web de registro de tareas, la cual, cuenta con las siguientes caracteristicas:
+Esta es una aplicación web de registro de tareas, la cual, cuenta con las siguientes características:
 - Modo claro / oscuro
 - Drag and drop
 - Filtro de tares (todas / terminadas / pendientes)
-- responsive
+- Responsive
 - Mensajes popUp
 
 <br>
