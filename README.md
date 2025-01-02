@@ -13,7 +13,7 @@
   <img src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?logo=tailwind-css&logoColor=white" alt="logo react">
 </div>
 
-![https://github.com/svtech-code](./public/img.png)
+![https://github.com/svtech-code](./public/img_update.png)
 
 
 ## 📑 Descripción
